@@ -27,7 +27,7 @@
         crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1bc46161c5.js" crossorigin="anonymous"></script>
 <div align="center">
-    <h1>Employee Management System Example</h1>
+    <h1>Employees Archive</h1>
 </div>
 <div style="margin: 20px">
     <table class="table table-striped table-responsive-md">
@@ -40,18 +40,6 @@
             <th>Salary</th>
             <th>Job started</th>
             <th>Criminal record</th>
-            <th>
-                <div>
-                    <a th:href="@{/sort}" class="btn btn-primary">Sort by date</a>
-                </div>
-            </th>
-            <th>
-                <div>
-                    <a th:href="@{/show-archive}" class="btn btn-primary">
-                        <i>Show archive</i>
-                    </a>
-                </div>
-            </th>
         </tr>
         </thead>
         <tbody>
@@ -63,35 +51,15 @@
             <td th:text="${employee.salary}"></td>
             <td th:text="${employee.start}"></td>
             <td th:text="${employee.criminalRecord}"></td>
-            <td>
-                <a th:href="@{/edit/{id}(id=${employee.id})}"
-                   class="btn btn-primary">
-                    <i class="fas fa-user-edit ml-2"></i>
-                </a>
-            </td>
-            <td>
-                <a th:href="@{/delete/{id}(id=${employee.id})}"
-                   class="btn btn-danger">
-                    <i class="fas fa-user-times ml-2"></i>
-                </a>
-            </td>
-            <td>
-                <a th:href="@{/archive/{id}(id=${employee.id})}"
-                   class="btn btn-info">
-                    <i class="fas fa-archive ml-2"></i>
-                </a>
-            </td>
-            </a>
-            </td>
         </tr>
         </tbody>
     </table>
     <div>
-        <a th:href="@{/signup}" class="btn btn-primary">
-            <i class="fas fa-user-plus ml-2"></i>
+        <a th:href="@{/}" class="btn btn-primary">
+            <i>Back</i>
         </a>
     </div>
+
 </div>
 
 </body>
-</html>

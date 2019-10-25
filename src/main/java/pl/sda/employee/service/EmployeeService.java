@@ -25,7 +25,17 @@ public class EmployeeService {
     }
 
     public List<Employee> showAllEmployees() {
-        return employeesRepository.findAll();
+        List<Employee> activeEmployees = employeesRepository.findAll().stream()
+                .filter(employee -> employee.getArchive() == false)
+                .collect(Collectors.toList());
+        return activeEmployees;
+    }
+
+    public List<Employee> showArchive() {
+        List<Employee> archivedEmployees = employeesRepository.findAll().stream()
+                .filter(Employee::getArchive)
+                .collect(Collectors.toList());
+        return archivedEmployees;
     }
 
     public void deleteEmployee(Long id) {
@@ -37,9 +47,17 @@ public class EmployeeService {
     }
 
     public List<Employee> sortByDate() {
-        List<Employee> sorted = employeesRepository.findAll().stream()
+        List<Employee> sorted = showAllEmployees().stream()
                 .sorted(Comparator.comparing(employee -> employee.getStart()))
                 .collect(Collectors.toList());
         return sorted;
     }
+
+    public Employee addEmployeeToArchive(Long id) {
+        Employee employeeArchive = employeesRepository.findById(id).get();
+        employeeArchive.setArchive(true);
+        createEmployee(employeeArchive);
+        return employeeArchive;
+    }
 }
+

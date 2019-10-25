@@ -84,6 +84,28 @@ public class EmployeesController {
         return "employee";
     }
 
+    @GetMapping("/archive/{id}")
+    public String addToArchive(@PathVariable Long id) {
+        employeeService.addEmployeeToArchive(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/show-archive")
+    public String showArchive(Model model){
+        model.addAttribute("employees", employeeService.showArchive());
+        return "archive";
+    }
+
+    @GetMapping("/back")
+    public String backToMainPage(Model model){
+        showAllEmployees(model);
+        return "redirect:/";
+    }
+
+
+
+
+
 
 
 
