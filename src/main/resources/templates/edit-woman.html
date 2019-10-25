@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Employee Management System Example</title>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/1bc46161c5.js" crossorigin="anonymous"></script>
+<div align="center">
+    <h1>Edit employee</h1>
+</div>
+
+<div class="d-flex p-2">
+    <form  action="#" th:action="@{/edit/{id}(id=${employee.getId()})}"  th:object="${employee}" method="post" >
+        <div class="form-group">
+            <label>Pesel:</label>
+            <span th:text="${employee.pesel}">Pesel</span>
+            <input type="hidden" th:value="${employee.pesel}" name="pesel">
+
+        </div>
+        <div class="form-group">
+            <label>Name:</label>
+            <span th:text="${employee.name}">Name</span>
+            <input type="hidden" th:value="${employee.getName()}" name="name">
+        </div>
+        <div class="form-group">
+            <label>Surname:</label>
+            <input type="text" class="form-control" th:field="*{surname}" id="surname" th:placeholder="Surname">
+        </div>
+        <div class="form-group">
+            <label>Sex</label>
+            <span th:text="${employee.sex}">Sex</span>
+            <input type="hidden" th:value="${employee.getSex()}" name="sex">
+        </div>
+        <div class="form-group">
+            <label>Salary</label>
+            <input type="text" class="form-control" th:field="*{salary}" id="salary" th:placeholder="Salary">
+            <input type="hidden" th:value="${employee.getSalary()}" name="salary">
+        </div>
+        <div class="form-group">
+            <label>Date of employment</label>
+            <span th:text="${employee.start}">Job started</span>
+            <input type="hidden" th:value="${employee.getStart()}" name="start">
+        </div>
+        <div class="form-group">
+            <label>Criminal record</label>
+            <input type="checkbox"  th:checked="${employee.criminalRecord}==true"  name="criminalRecord">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="Update">
+        </div>
+    </form>
+</div>
+</body>
+</html>
