@@ -3,6 +3,7 @@ package pl.sda.employee.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.sda.company.model.Company;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -38,5 +39,10 @@ public class Employee {
     private Boolean criminalRecord = false;
 
     private Boolean archive = false;
+
+    @ManyToOne
+    private Company company;
+
+
 
 }
