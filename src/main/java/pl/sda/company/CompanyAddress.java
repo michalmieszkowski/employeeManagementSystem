@@ -1,4 +1,4 @@
-package pl.sda.company.model;
+package pl.sda.company;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,13 +10,10 @@ import javax.persistence.Embeddable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompanyAdress {
+public class CompanyAddress {
 
     private String street;
     private String city;
     private String zipcode;
     private String country;
-
-
-
 }

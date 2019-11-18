@@ -28,19 +28,19 @@
     <form  action="#" th:action="@{/company/add-company}"  th:object="${company}"  method="post" >
         <div class="form-group">
             <label>Country</label>
-            <input type="text" class="form-control" th:field="*{adress.country}" id="country" th:placeholder="country">
+            <input type="text" class="form-control" th:field="*{address.country}" id="country" th:placeholder="country">
         </div>
         <div class="form-group">
             <label>City</label>
-            <input type="text" class="form-control" th:field="*{adress.city}" id="city" th:placeholder="city">
+            <input type="text" class="form-control" th:field="*{address.city}" id="city" th:placeholder="city">
         </div>
         <div class="form-group">
             <label>Street</label>
-            <input type="text" class="form-control" th:field="*{adress.street}" id="street" th:placeholder="street">
+            <input type="text" class="form-control" th:field="*{address.street}" id="street" th:placeholder="street">
         </div>
         <div class="form-group">
             <label>Zipcode</label>
-            <input type="text" class="form-control" th:field="*{adress.zipcode}" id="zipcode" th:placeholder="zipcode">
+            <input type="text" class="form-control" th:field="*{address.zipcode}" id="zipcode" th:placeholder="zipcode">
         </div>
         <div class="form-group">
             <label>Name</label>

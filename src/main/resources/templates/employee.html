@@ -58,25 +58,25 @@
             <td th:text="${employee.criminalRecord}"></td>
             <td th:text="${employee?.company?.name}"></td>
             <td>
-                <a th:href="@{/edit/{id}(id=${employee.id})}"
+                <a th:href="@{/employee/edit/{employeeId}(employeeId=${employee.id})}"
                    class="btn btn-primary">
                     <i class="fas fa-user-edit ml-2"></i>
                 </a>
             </td>
             <td>
-                <a th:href="@{/delete/{id}(id=${employee.id})}"
+                <a th:href="@{/employee/delete/{employeeId}(employeeId=${employee.id})}"
                    class="btn btn-danger">
                     <i class="fas fa-user-times ml-2"></i>
                 </a>
             </td>
             <td>
-                <a th:href="@{/archive/{id}(id=${employee.id})}"
+                <a th:href="@{/employee/archive/{employeeId}(employeeId=${employee.id})}"
                    class="btn btn-info">
                     <i class="fas fa-archive ml-2"></i>
                 </a>
             </td>
             <td>
-                <a th:href="@{/company/companiesList/employee/{id}(id=${employee.id})}"
+                <a th:href="@{/company/companies-list/employee/{employeeId}(employeeId=${employee.id})}"
                    class="btn btn-warning">
                     <i class="fas fa-user-plus"></i>
                 </a>
@@ -90,7 +90,7 @@
         <table class="table table-striped table-responsive-md">
             <tr>
                 <th>
-        <a th:href="@{/signup}" class="btn btn-success">
+        <a th:href="@{/employee/signup}" class="btn btn-success">
             <i>Signup new employee</i>
         </a>
                 </th>
@@ -103,14 +103,14 @@
                 </th>
                 <th>
                     <div>
-                        <a th:href="@{/show-archive}" class="btn btn-info">
+                        <a th:href="@{/employee/show-archive}" class="btn btn-info">
                             <i>Show archive</i>
                         </a>
                     </div>
                 </th>
                 <th>
                     <div>
-                        <a th:href="@{/sort}" class="btn btn-info">Sort by date</a>
+                        <a th:href="@{/employee/sort}" class="btn btn-info">Sort by date</a>
                     </div>
                 </th>
             </tr>

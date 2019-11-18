@@ -1,7 +1,7 @@
 package pl.sda.employee.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.sda.employee.model.Employee;
+import pl.sda.employee.Employee;
 import java.util.List;
 import java.util.Optional;
 

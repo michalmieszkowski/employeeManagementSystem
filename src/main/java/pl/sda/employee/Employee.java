@@ -1,9 +1,9 @@
-package pl.sda.employee.model;
+package pl.sda.employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.sda.company.model.Company;
+import pl.sda.company.Company;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.sda.company.model.Company;
-import pl.sda.company.model.CompanyAdress;
+import pl.sda.company.Company;
+import pl.sda.company.CompanyAddress;
 import pl.sda.company.service.CompanyService;
-import pl.sda.employee.model.Employee;
+import pl.sda.employee.Employee;
 import pl.sda.employee.service.EmployeeService;
 
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/company")
@@ -32,7 +31,7 @@ public class CompanyController {
     @GetMapping("/add-company")
     public String addCompany(Model model) {
         model.addAttribute("company", new Company());
-        model.addAttribute("companyAdress", new CompanyAdress());
+        model.addAttribute("companyAddress", new CompanyAddress());
         return "company";
     }
 
@@ -42,30 +41,30 @@ public class CompanyController {
             return "company";
         }
         companyService.createNewCompany(company);
-        return "redirect:/";
+        return "redirect:/employee";
     }
 
-    @GetMapping("/companiesList/employee/{id}")
-    public String showCompanyList(@PathVariable Long id, Model model){
-        Optional<Employee> employee = employeeService.findById(id);
+    @GetMapping("/companies-list/employee/{employeeId}")
+    public String showCompanyList(@PathVariable Long employeeId, Model model){
+        Employee employee = employeeService.findById(employeeId);
         model.addAttribute("companies", companyService.showAllCompanies());
         model.addAttribute("employee", employee);
-        return "companyList";
+        return "companies-list";
     }
 
-    @GetMapping("companiesList/employee/{id}/company/{id1}")
-    public String addEmployeeToCompany(@PathVariable Long id, @PathVariable Long id1, Model model){
-        model.addAttribute("companies", id);
-        model.addAttribute("employee", id1);
-        return "companyList";
+    @GetMapping("companies-list/employee/{employeeId}/company/{companyId}")
+    public String addEmployeeToCompanyForm(@PathVariable Long employeeId, @PathVariable Long companyId, Model model){
+        model.addAttribute("companies", companyId);
+        model.addAttribute("employee", employeeId);
+        return "companies-list";
     }
 
-    @GetMapping("companiesList/employee/{id}/company/{id1}/submit")
-    public String addEmployeeToCompanySubmit(@PathVariable Long id, @PathVariable Long id1){
-        Company company = companyService.findCompanyById(id1).get();
-        Employee employee = employeeService.findById(id).get();
+    @GetMapping("companies-list/employee/{employeeId}/company/{companyId}/submit")
+    public String addEmployeeToCompanySubmit(@PathVariable Long employeeId, @PathVariable Long companyId){
+        Company company = companyService.findCompanyById(companyId);
+        Employee employee = employeeService.findById(employeeId);
         employee.setCompany(company);
         companyService.addEmployeeToCompany(company, employee);
-        return "redirect:/";
+        return "redirect:/employee";
     }
 }

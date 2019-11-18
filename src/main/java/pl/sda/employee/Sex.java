@@ -1,4 +1,4 @@
-package pl.sda.employee.model;
+package pl.sda.employee;
 
 public enum Sex {
     MEN,

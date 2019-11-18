@@ -24,7 +24,7 @@
 </div>
 
 <div class="d-flex p-2">
-<form  action="#" th:action="@{/signup}"  th:object="${employee}" method="post" >
+<form  action="#" th:action="@{/employee/signup}"  th:object="${employee}" method="post" >
     <div class="form-group">
         <label>Pesel:</label>
         <input type="text" class="form-control" th:field="*{pesel}" id="pesel" >
@@ -40,7 +40,7 @@
     <div class="form-group">
         <label>Sex</label>
         <select name="sex" class="form-control" th:field="${employee.sex}">
-            <option th:each="sexOpt : ${T(pl.sda.employee.model.Sex).values()}"
+            <option th:each="sexOpt : ${T(pl.sda.employee.Sex).values()}"
                     th:value="${sexOpt}" th:text="${sexOpt}" ></option>
         </select>
     </div>

@@ -2,9 +2,9 @@ package pl.sda.company.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.company.model.Company;
+import pl.sda.company.Company;
 import pl.sda.company.repository.CompanyRepository;
-import pl.sda.employee.model.Employee;
+import pl.sda.employee.Employee;
 import pl.sda.employee.repository.EmployeesRepository;
 
 import java.util.List;
@@ -37,8 +37,9 @@ public class CompanyService {
         employeesRepository.save(employee);
     }
 
-    public Optional<Company> findCompanyById(Long id){
-        return companyRepository.findById(id);
+    public Company findCompanyById(Long id){
+        Optional<Company> company = companyRepository.findById(id);
+        return company.orElse(null);
     }
 
 

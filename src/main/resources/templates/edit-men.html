@@ -22,7 +22,7 @@
 </div>
 
 <div class="d-flex p-2">
-    <form  action="#" th:action="@{/edit/{id}(id=${employee.getId()})}"  th:object="${employee}" method="post" >
+    <form  action="#" th:action="@{/employee/edit/{employeeId}(employeeId=${employee.getId()})}"  th:object="${employee}" method="post" >
         <div class="form-group">
             <label>Pesel:</label>
             <span th:text="${employee.pesel}">Pesel</span>

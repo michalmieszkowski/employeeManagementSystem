@@ -1,9 +1,9 @@
-package pl.sda.company.model;
+package pl.sda.company;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.sda.employee.model.Employee;
+import pl.sda.employee.Employee;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,20 +14,16 @@ import java.util.List;
 @NoArgsConstructor
 public class Company {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Embedded
-    private CompanyAdress adress;
+    private CompanyAddress address;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private List<Employee> employeeList;
 
     private String name;
-
-
-
 
 }
